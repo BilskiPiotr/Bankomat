@@ -13,7 +13,7 @@ namespace Bankomat
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PB_Bankomat());
+            Application.Run(new Bankomat());
         }
     }
 }

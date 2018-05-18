@@ -1,34 +1,33 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Bankomat
 {
-    public partial class PB_Bankomat : Form
+    public partial class Bankomat : Form
     {
-        public PB_Bankomat()
+        public Bankomat()
         {
             InitializeComponent();
 
             // wylaczenie wybranych zakłądek przy starcie programu 
-            PB_ZakladkaZW.Enabled = false;
-            PB_ZakladkaWN.Enabled = false;
+            zakladkaZW.Enabled = false;
+            zakladkaWN.Enabled = false;
         }
 
         // deklaracja zmiennych globalnych
-        int PB_Waluta = 1;
-        float PB_WyplacMiKwote;
-        float[ , ] PB_KasetkaZKasą;
-        int[ ] PB_WypłaconoKlientowi;
-        float PB_PozostałoDoWypłaty;
-        int PB_IlośćNominałówDoWypłaty;
-        float PB_KapitałBankomatu;
-        string [ ] PB_SymbolWaluty;
+        int waluta = 1;
+        float wyplacMiKwote;
+        float[ , ] kasetkaZKasą;
+        int[ ] wypłaconoKlientowi;
+        float pozostałoDoWypłaty;
+        int ilośćNominałówDoWypłaty;
+        float kapitałBankomatu;
+        string [ ] symbolWaluty;
 
 
         // wywołanie metody uniemożliwiającej wybranie nieaktywnych zakładek
-        private void PB_GrZakladek_Selecting(object sender, TabControlCancelEventArgs e)
+        private void GrZakladek_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (!e.TabPage.Enabled)
             {
@@ -38,10 +37,10 @@ namespace Bankomat
 
         // wywołanie metody rysującej elementy wizualne do wszystkich zakładek
         // po przełączeniu DrawMode na OwnerDrawFixed
-        private void PB_GrZakladek_DrawItem(object sender, DrawItemEventArgs e)
+        private void GrZakladek_DrawItem(object sender, DrawItemEventArgs e)
         {
             // określenie koloru, stylu, ect dla zakładki aktywnej
-            TabPage page = PB_GrZakladek.TabPages[e.Index];
+            TabPage page = grZakladek.TabPages[e.Index];
             if (!page.Enabled)
             {
                 using (SolidBrush brush = new SolidBrush(SystemColors.GrayText))
@@ -62,76 +61,76 @@ namespace Bankomat
 
 
         // Metoda pobierająca dane wejściowe i sprawdzająca poprawnosć ich wprowadzania
-        bool PB_PobierzDaneDoBankomatu(out float PB_MinNominalow, out float PB_MaxNominalow)
+        bool PobierzDaneDoBankomatu(out float minNominalow, out float maxNominalow)
         {
-            PB_MinNominalow = 0.0F;
-            PB_MaxNominalow = 0.0F;
+            minNominalow = 0.0F;
+            maxNominalow = 0.0F;
             
 
             // sprawdzenie czy użytkownik ustawił losową, czy z góry zadeklarowaną ilośc nominałów w bankomacie
-            if (PB_LiczbaNominalowRandom.Checked)
+            if (rb_liczbaNominalowRandom.Checked)
             {
                 // jeśli wybrał własną konfigurację - aktywowanie kontrolek
                 // do wczytania minimalnej i maksymalnej ilości nominałów
-                PB_DolnaIloscNominalow.Enabled = true;
-                PB_GornaIloscNominalow.Enabled = true;
+                tb_dolnaIloscNominalow.Enabled = true;
+                tb_gornaIloscNominalow.Enabled = true;
 
 
                 // Wczytanie wartości minimalnej nominałów wraz ze sprawdzeniem poprawności zapisu
-                // sprawdzenie, czy wpisano cokolwiek do kontrolki PB_DolnaIloscNominalow
-                if (string.IsNullOrEmpty(PB_DolnaIloscNominalow.Text))
+                // sprawdzenie, czy wpisano cokolwiek do kontrolki tb_dolnaIloscNominalow
+                if (string.IsNullOrEmpty(tb_dolnaIloscNominalow.Text))
                 {
                     // zapalenie kontrolki errorProvider i zasygnalizowanie błędu urzytkownikowi
-                    errorProvider1.SetError(PB_DolnaIloscNominalow,
+                    errorProvider1.SetError(tb_dolnaIloscNominalow,
                         "ERROR: Podaj dolną granicę pojemności kaset z nominałami");
                     return false;
-                    // zakończenie sprawdzania czy wpisano cokolwiek jako zadeklarowaną wartość PB_DolnaIloscNominalow
+                    // zakończenie sprawdzania czy wpisano cokolwiek jako zadeklarowaną wartość tb_dolnaIloscNominalow
                 }
                 errorProvider1.Dispose();
 
 
-                // wczytanie wartości minimalnej z kontrolki PB_DolnaIloscNominalow
-                if (!float.TryParse(PB_DolnaIloscNominalow.Text, out PB_MinNominalow))
+                // wczytanie wartości minimalnej z kontrolki tb_dolnaIloscNominalow
+                if (!float.TryParse(tb_dolnaIloscNominalow.Text, out minNominalow))
                 {
-                    errorProvider1.SetError(PB_DolnaIloscNominalow,
+                    errorProvider1.SetError(tb_dolnaIloscNominalow,
                         "ERROR: Do określenia minimalnej ilości użyto niedozwolonych znaków. Wpisz wartośc ponownie");
                     return false;
-                    // zakończenie sprawdzania poprawności wpisania wartości PB_DolnaIloscNominalow
+                    // zakończenie sprawdzania poprawności wpisania wartości tb_dolnaIloscNominalow
                 }
                 errorProvider1.Dispose();
 
 
                 // Wczytanie wartości minimalnej nominałów wraz ze sprawdzeniem poprawności zapisu
-                // sprawdzenie, czy wpisano cokolwiek do kontrolki PB_GornaIloscNominalow
-                if (string.IsNullOrEmpty(PB_GornaIloscNominalow.Text))
+                // sprawdzenie, czy wpisano cokolwiek do kontrolki tb_gornaIloscNominalow
+                if (string.IsNullOrEmpty(tb_gornaIloscNominalow.Text))
                 {
                     // zapalenie kontrolki errorProvider i zasygnalizowanie błędu urzytkownikowi
-                    errorProvider1.SetError(PB_GornaIloscNominalow,
+                    errorProvider1.SetError(tb_gornaIloscNominalow,
                         "ERROR: Podaj górną granicę pojemności kaset z nominałami");
                     return false;
-                    // zakończenie sprawdzania czy wpisano cokolwiek jako zadeklarowaną wartość PB_GornaIloscNominalow
+                    // zakończenie sprawdzania czy wpisano cokolwiek jako zadeklarowaną wartość tb_gornaIloscNominalow
                 }
                 errorProvider1.Dispose();
 
 
-                // wczytanie wartości maksymalnej z kontrolki PB_GornaIloscNominalow
-                if ((!float.TryParse(PB_GornaIloscNominalow.Text, out PB_MaxNominalow) && (PB_MinNominalow <= 0)))
+                // wczytanie wartości maksymalnej z kontrolki tb_gornaIloscNominalow
+                if ((!float.TryParse(tb_gornaIloscNominalow.Text, out maxNominalow) && (minNominalow <= 0)))
                 {
-                    errorProvider1.SetError(PB_GornaIloscNominalow,
+                    errorProvider1.SetError(tb_gornaIloscNominalow,
                         "ERROR: Do określenia maksymalnej ilości użyto niedozwolonych znaków. Wpisz wartośc ponownie");
                     return false;
-                    // zakończenie sprawdzania poprawności wpisania wartości PB_GornaIloscNominalow
+                    // zakończenie sprawdzania poprawności wpisania wartości tb_gornaIloscNominalow
                 }
                 errorProvider1.Dispose();
 
 
                 // sprawdzenie, czy minimalna ilośc nie jest większa lub równa maksymalnej ilości nominałów
-                if (PB_MinNominalow >= PB_MaxNominalow)
+                if (minNominalow >= maxNominalow)
                 {
-                    errorProvider1.SetError(PB_GornaIloscNominalow,
+                    errorProvider1.SetError(tb_gornaIloscNominalow,
                         "ERROR: Minimalna ilośc nominałów powinna być mniejsza od maksymalnej");
                     return false;
-                    // zakończenie sprawdzania czy wartość PB_MinNominalow >= PB_MaxNominalow
+                    // zakończenie sprawdzania czy wartość minNominalow >= maxNominalow
                 }
                 errorProvider1.Dispose();
 
@@ -142,230 +141,229 @@ namespace Bankomat
 
 
         // wywołanie metody obsługi zdażenia Click klawisza zatwierdzającego konfiguracje wstępną bankomatu
-        private void PB_NapelnienieBankomatu_Click(object sender, EventArgs e)
+        private void NapelnienieBankomatu_Click(object sender, EventArgs e)
         {
             // deklaracja zmiennych lokalnych
-            float PB_MinNominalow;                              
-            float PB_MaxNominalow;
-            int PB_k = -1;                                      // ustawienie zmiennej przechowującej długosc obrabianej tablicy zgodnie z wolą użytkownika
-            int PB_krok = -1;                                   // wywołanie pomocniczej zmiennej tablicowej PB_krok
-            Random PB_LosowaIloscNominałów = new Random();      // wywołanie generatora liczb losowych i ustanowienie nazwy zmiennej dla wyników losowych
-            PB_WyplacMiKwote = 0.0F;                            // wywołanie zmiennej przechowującej kwotę do wypłaty
-            PB_KapitałBankomatu = 0;                            // zmienna przechowująca całkowitą kwotę wybranej waluty w bankomacie
+
+            int k = -1;                                         // ustawienie zmiennej przechowującej długosc obrabianej tablicy zgodnie z wolą użytkownika
+            int krok = -1;                                      // wywołanie pomocniczej zmiennej tablicowej krok
+            Random losowaIloscNominałów = new Random();         // wywołanie generatora liczb losowych i ustanowienie nazwy zmiennej dla wyników losowych
+            wyplacMiKwote = 0.0F;                               // wywołanie zmiennej przechowującej kwotę do wypłaty
+            kapitałBankomatu = 0;                               // zmienna przechowująca całkowitą kwotę wybranej waluty w bankomacie
 
 
             // sprawdzenie warunku wejściowego
-            if (!PB_PobierzDaneDoBankomatu(out PB_MinNominalow, out PB_MaxNominalow))
+            if (!PobierzDaneDoBankomatu(out float minNominalow, out float maxNominalow))
                 return;
 
             // wywołanie tablic nominałów poszczególnych walut
-            float[] PB_NominałyPL = { 200, 100, 50, 20, 10, 5, 2, 1, 0.5F, 0.2F, 0.1F };
-            string[] PB_PL = { "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "gr", "gr", "gr" };
-            float[] PB_NominałyEU = { 500, 200, 100, 50, 20, 10, 5, 2, 1, 0.5F, 0.2F, 0.1F };
-            string[] PB_EU = { "€", "€", "€", "€", "€", "€", "€", "€", "€", "cent", "cent", "cent" };
-            float[] PB_NominałyUS = { 1000.0F, 500.0F, 100.0F, 50.0F, 20.0F, 10.0F, 5.0F, 2.0F, 1.0F, 0.5F, 0.25F, 0.1F };
-            string[] PB_US = { "$", "$", "$", "$", "$", "$", "$", "$", "$", "cent", "cent", "cent" };
-            float[] PB_NominałyGB = { 50.0F, 20.0F, 10.0F, 5.0F, 2.0F, 1.0F, 0.5F, 0.2F, 0.1F };
-            string[] PB_GB = { "£", "£", "£", "£", "£", "£", "pens", "pens", "pens" };
+            float[] nominałyPL = { 200, 100, 50, 20, 10, 5, 2, 1, 0.5F, 0.2F, 0.1F };
+            string[] pl = { "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "ZŁ", "gr", "gr", "gr" };
+            float[] nominałyEU = { 500, 200, 100, 50, 20, 10, 5, 2, 1, 0.5F, 0.2F, 0.1F };
+            string[] eu = { "€", "€", "€", "€", "€", "€", "€", "€", "€", "cent", "cent", "cent" };
+            float[] nominałyUS = { 1000.0F, 500.0F, 100.0F, 50.0F, 20.0F, 10.0F, 5.0F, 2.0F, 1.0F, 0.5F, 0.25F, 0.1F };
+            string[] us = { "$", "$", "$", "$", "$", "$", "$", "$", "$", "cent", "cent", "cent" };
+            float[] nominałyGB = { 50.0F, 20.0F, 10.0F, 5.0F, 2.0F, 1.0F, 0.5F, 0.2F, 0.1F };
+            string[] gb = { "£", "£", "£", "£", "£", "£", "pens", "pens", "pens" };
             
             
             
 
 
             // warunek wejściowy - jeśli użytkownik zdecydowa się na losowo generowaną ilośc nominałów
-            if (PB_LiczbaNominalowRandom.Checked)
+            if (rb_liczbaNominalowRandom.Checked)
             {
                 //Jeśli użytkownik zadeklarował wypłatę wde PLN
-                if (PB_Waluta == 1)
+                if (waluta == 1)
                 {
                     // wywołanie i utworzenie tablicy przechowującej pary nominał 
                     // + wygenerowana losowo ilość dla wybranej waluty PL
-                    PB_WalutaInfo.Text = ("PLN");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty PLN
-                    PB_k = PB_NominałyPL.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą                
-                    PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                    PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie egzemplarza tablicy przechowującej symbole wybranej waluty
-                    for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                    walutaInfo.Text = ("PLN");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty PLN
+                    k = nominałyPL.Length;                           // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą                
+                    kasetkaZKasą = new float[k, 2];                  // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                    symbolWaluty = new string[k];                    // deklaracja i utworzenie egzemplarza tablicy przechowującej symbole wybranej waluty
+                    for (krok = 0; krok < k; krok++)                 // zadeklarowanie kroku zmiennej tablicowej
 
-                    // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                    // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                     {
-                        PB_KasetkaZKasą[PB_krok, 0] = PB_LosowaIloscNominałów.Next((int)PB_MinNominalow, (int)PB_MaxNominalow);
-                        PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyPL[PB_krok];
-                        PB_SymbolWaluty[PB_krok] = PB_PL[PB_krok];
+                        kasetkaZKasą[krok, 0] = losowaIloscNominałów.Next((int)minNominalow, (int)maxNominalow);
+                        kasetkaZKasą[krok, 1] = nominałyPL[krok];
+                        symbolWaluty[krok] = pl[krok];
                     }
                 }
                 else
                     //Jeśli użytkownik zadeklarował wypłatę wde USD
-                    if (PB_Waluta == 2)
+                    if (waluta == 2)
                     {
-                        PB_WalutaInfo.Text = ("USD");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty USD
-                        PB_k = PB_NominałyUS.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą
-                        PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                        PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
-                        for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                        walutaInfo.Text = ("USD");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty USD
+                        k = nominałyUS.Length;                           // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą
+                        kasetkaZKasą = new float[k, 2];                  // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                        symbolWaluty = new string[k];                    // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
+                        for (krok = 0; krok < k; krok++)                 // zadeklarowanie kroku zmiennej tablicowej
 
-                        // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                        // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                         {
-                            PB_KasetkaZKasą[PB_krok, 0] = PB_LosowaIloscNominałów.Next((int)PB_MinNominalow, (int)PB_MaxNominalow);
-                            PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyUS[PB_krok];
-                            PB_SymbolWaluty[PB_krok] = PB_US[PB_krok];
+                            kasetkaZKasą[krok, 0] = losowaIloscNominałów.Next((int)minNominalow, (int)maxNominalow);
+                            kasetkaZKasą[krok, 1] = nominałyUS[krok];
+                            symbolWaluty[krok] = us[krok];
                         }
                     }
                     else
                         //Jeśli użytkownik zadeklarował wypłatę wde EUR
-                        if (PB_Waluta == 3)
+                        if (waluta == 3)
                         {
-                            PB_WalutaInfo.Text = ("EUR");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty EUR
-                            PB_k = PB_NominałyEU.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą
-                            PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                            PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
-                            for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                            walutaInfo.Text = ("EUR");                    // ustawienie tekstu w kontrolce informacyjnej dla waluty EUR
+                            k = nominałyEU.Length;                        // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą
+                            kasetkaZKasą = new float[k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                            symbolWaluty = new string[k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
+                            for (krok = 0; krok < k; krok++)              // zadeklarowanie kroku zmiennej tablicowej
 
-                            // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                            // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                             {
-                                PB_KasetkaZKasą[PB_krok, 0] = PB_LosowaIloscNominałów.Next((int)PB_MinNominalow, (int)PB_MaxNominalow);
-                                PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyEU[PB_krok];
-                                PB_SymbolWaluty[PB_krok] = PB_EU[PB_krok];
+                                kasetkaZKasą[krok, 0] = losowaIloscNominałów.Next((int)minNominalow, (int)maxNominalow);
+                                kasetkaZKasą[krok, 1] = nominałyEU[krok];
+                                symbolWaluty[krok] = eu[krok];
                             }
                         }
                         else
                             //Jeśli użytkownik zadeklarował wypłatę wde GBP
-                            if (PB_Waluta == 4)
+                            if (waluta == 4)
                             {
-                                PB_WalutaInfo.Text = ("GBP");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty GBP
-                                PB_k = PB_NominałyGB.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą
-                                PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                                PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
-                                for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                                walutaInfo.Text = ("GBP");                    // ustawienie tekstu w kontrolce informacyjnej dla waluty GBP
+                                k = nominałyGB.Length;                        // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą
+                                kasetkaZKasą = new float[k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                                symbolWaluty = new string[k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
+                                for (krok = 0; krok < k; krok++)              // zadeklarowanie kroku zmiennej tablicowej
 
-                                // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                                // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                                 {
-                                    PB_KasetkaZKasą[PB_krok, 0] = PB_LosowaIloscNominałów.Next((int)PB_MinNominalow, (int)PB_MaxNominalow);
-                                    PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyGB[PB_krok];
-                                    PB_SymbolWaluty[PB_krok] = PB_GB[PB_krok];
+                                    kasetkaZKasą[krok, 0] = losowaIloscNominałów.Next((int)minNominalow, (int)maxNominalow);
+                                    kasetkaZKasą[krok, 1] = nominałyGB[krok];
+                                    symbolWaluty[krok] = gb[krok];
                                 }
                             }
 
                 // podliczenie kwoty jaką dysponuje BANKOMAT
-                int PB_j = -1;   // deklaracja zmiennej pomocniczej do obliczenia kapitału bankomatu
-                int PB_WysokośćKolumny = PB_KasetkaZKasą.GetLength(0);
+                int j = -1;   // deklaracja zmiennej pomocniczej do obliczenia kapitału bankomatu
+                int wysokośćKolumny = kasetkaZKasą.GetLength(0);
                 do
                 {
-                    PB_j++;
-                    PB_KapitałBankomatu = PB_KapitałBankomatu + PB_KasetkaZKasą[PB_j, 0] * PB_KasetkaZKasą[PB_j, 1];
+                    j++;
+                    kapitałBankomatu = kapitałBankomatu + kasetkaZKasą[j, 0] * kasetkaZKasą[j, 1];
                 }
-                while (PB_j < (PB_WysokośćKolumny - 1));
+                while (j < (wysokośćKolumny - 1));
 
                
 
             }
             else
-                if (PB_IloscNominalowDefault.Checked)
+                if (rb_iloscNominalowDefault.Checked)
 
                 {
-                    const int PB_StałaIlość = 35;
+                    const int stałaIlość = 35;
                     //Jeśli użytkownik zadeklarował wypłatę wde PLN
-                    if (PB_Waluta == 1)
+                    if (waluta == 1)
                     {
-                        PB_WalutaInfo.Text = ("PLN");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty PLN
-                        PB_k = PB_NominałyPL.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą                
-                        PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                        PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
-                        for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                        walutaInfo.Text = ("PLN");                     // ustawienie tekstu w kontrolce informacyjnej dla waluty PLN
+                        k = nominałyPL.Length;                        // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą                
+                        kasetkaZKasą = new float[k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                        symbolWaluty = new string[k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
+                        for (krok = 0; krok < k; krok++)              // zadeklarowanie kroku zmiennej tablicowej
 
-                        // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                        // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                         {
-                            PB_KasetkaZKasą[PB_krok, 0] = PB_StałaIlość;
-                            PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyPL[PB_krok];
-                            PB_SymbolWaluty[PB_krok] = PB_PL[PB_krok];
+                            kasetkaZKasą[krok, 0] = stałaIlość;
+                            kasetkaZKasą[krok, 1] = nominałyPL[krok];
+                            symbolWaluty[krok] = pl[krok];
                         }
                     }
                     else
                         //Jeśli użytkownik zadeklarował wypłatę wde USD
-                        if (PB_Waluta == 2)
+                        if (waluta == 2)
                         {
-                            PB_WalutaInfo.Text = ("USD");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty USD
-                            PB_k = PB_NominałyUS.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą
-                            PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                            PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
-                            for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                            walutaInfo.Text = ("USD");                    // ustawienie tekstu w kontrolce informacyjnej dla waluty USD
+                            k = nominałyUS.Length;                        // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą
+                            kasetkaZKasą = new float[k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                            symbolWaluty = new string[k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
+                            for (krok = 0; krok < k; krok++)              // zadeklarowanie kroku zmiennej tablicowej
 
-                            // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                            // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                             {
-                                PB_KasetkaZKasą[PB_krok, 0] = PB_StałaIlość;
-                                PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyUS[PB_krok];
-                                PB_SymbolWaluty[PB_krok] = PB_US[PB_krok];
+                                kasetkaZKasą[krok, 0] = stałaIlość;
+                                kasetkaZKasą[krok, 1] = nominałyUS[krok];
+                                symbolWaluty[krok] = us[krok];
                             }
                         }
                         else
                             //Jeśli użytkownik zadeklarował wypłatę wde EUR
-                            if (PB_Waluta == 3)
+                            if (waluta == 3)
                             {
-                                PB_WalutaInfo.Text = ("EUR");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty EUR
-                                PB_k = PB_NominałyEU.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą
-                                PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                                PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
-                                for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                                walutaInfo.Text = ("EUR");                    // ustawienie tekstu w kontrolce informacyjnej dla waluty EUR
+                                k = nominałyEU.Length;                        // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą
+                                kasetkaZKasą = new float[k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                                symbolWaluty = new string[k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
+                                for (krok = 0; krok < k; krok++)              // zadeklarowanie kroku zmiennej tablicowej
 
-                                // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                                // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                                 {
-                                    PB_KasetkaZKasą[PB_krok, 0] = PB_StałaIlość;
-                                    PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyEU[PB_krok];
-                                    PB_SymbolWaluty[PB_krok] = PB_EU[PB_krok];
+                                    kasetkaZKasą[krok, 0] = stałaIlość;
+                                    kasetkaZKasą[krok, 1] = nominałyEU[krok];
+                                    symbolWaluty[krok] = eu[krok];
                                 }
                             }
                             else
                                 //Jeśli użytkownik zadeklarował wypłatę wde GBP
-                                if (PB_Waluta == 4)
+                                if (waluta == 4)
                                 {
-                                    PB_WalutaInfo.Text = ("GBP");                       // ustawienie tekstu w kontrolce informacyjnej dla waluty GBP
-                                    PB_k = PB_NominałyGB.Length;                        // ustalenie długości tablicy 2-wymiarowej PB_KasetkaZKasą
-                                    PB_KasetkaZKasą = new float[PB_k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
-                                    PB_SymbolWaluty = new string[PB_k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
-                                    for (PB_krok = 0; PB_krok < PB_k; PB_krok++)        // zadeklarowanie kroku zmiennej tablicowej
+                                    walutaInfo.Text = ("GBP");                    // ustawienie tekstu w kontrolce informacyjnej dla waluty GBP
+                                    k = nominałyGB.Length;                        // ustalenie długości tablicy 2-wymiarowej KasetkaZKasą
+                                    kasetkaZKasą = new float[k, 2];               // deklaracja i utworzenie egzemplarza tablicy przechowującej pary nominał + ilość
+                                    symbolWaluty = new string[k];                 // deklaracja i utworzenie nowego egzemplarza tablicy przechowującej symbol waluty
+                                    for (krok = 0; krok < k; krok++)              // zadeklarowanie kroku zmiennej tablicowej
 
-                                    // wywołanie pętli wykonującej napełnienie tablicy PB_KasetkaZKasą
+                                    // wywołanie pętli wykonującej napełnienie tablicy KasetkaZKasą
                                     {
-                                        PB_KasetkaZKasą[PB_krok, 0] = PB_StałaIlość;
-                                        PB_KasetkaZKasą[PB_krok, 1] = PB_NominałyGB[PB_krok];
-                                        PB_SymbolWaluty[PB_krok] = PB_GB[PB_krok];
+                                        kasetkaZKasą[krok, 0] = stałaIlość;
+                                        kasetkaZKasą[krok, 1] = nominałyGB[krok];
+                                        symbolWaluty[krok] = gb[krok];
                                     }
                                 }
                     // podliczenie kwoty jaką dysponuje BANKOMAT
-                    int PB_j = -1;   // deklaracja zmiennej pomocniczej do obliczenia kapitału bankomatu
-                    int PB_WysokośćKolumny = PB_KasetkaZKasą.GetLength(0);
+                    int j = -1;   // deklaracja zmiennej pomocniczej do obliczenia kapitału bankomatu
+                    int WysokośćKolumny = kasetkaZKasą.GetLength(0);
                     do
                     {
-                        PB_j++;
-                        PB_KapitałBankomatu = PB_KapitałBankomatu + PB_KasetkaZKasą[PB_j, 0] * PB_KasetkaZKasą[PB_j, 1];
+                        j++;
+                        kapitałBankomatu = kapitałBankomatu + kasetkaZKasą[j, 0] * kasetkaZKasą[j, 1];
                     }
-                    while (PB_j < (PB_WysokośćKolumny - 1));
+                    while (j < (WysokośćKolumny - 1));
                 }
 
-            ((Control)this.PB_ZakladkaK).Enabled = false;   // deaktywacja zakładki "Konfiguracja Bankomatu"
-            ((Control)this.PB_ZakladkaZW).Enabled = true;   // aktywacja zakłądki "Zlecenie Wypłaty"
-            PB_GrZakladek.SelectedTab = PB_ZakladkaZW;      // zmiana wybranej zakładki na "Zlecenie Wypłaty"
+            ((Control)this.zakladkaK).Enabled = false;   // deaktywacja zakładki "Konfiguracja Bankomatu"
+            ((Control)this.zakladkaZW).Enabled = true;   // aktywacja zakłądki "Zlecenie Wypłaty"
+            grZakladek.SelectedTab = zakladkaZW;         // zmiana wybranej zakładki na "Zlecenie Wypłaty"
         }
 
 
 
         // wywołanie metody sprawdzającej jaką decyzję w sprawie zawartości ilości nominałów
         // w bankomacie podjął użytkownik
-        private void PB_LiczbaNominalowRandom_CheckedChanged(object sender, EventArgs e)
+        private void LiczbaNominalowRandom_CheckedChanged(object sender, EventArgs e)
         {
             // sprawdzenie czy użytkownik ustawił losową, czy z góry zadeklarowaną ilośc nominałów w bankomacie
             // i jeśli wybrał losowe wartości
-            if (PB_LiczbaNominalowRandom.Checked)
+            if (rb_liczbaNominalowRandom.Checked)
             {
-                PB_DolnaIloscNominalow.Enabled = true;  // aktywowanie kontrolki do pwrowadzenia minimalnej ilości nominałów
-                PB_GornaIloscNominalow.Enabled = true;  // aktywowanie kontrolki do pwrowadzenia maksymalnej ilości nominałów
+                tb_dolnaIloscNominalow.Enabled = true;  // aktywowanie kontrolki do pwrowadzenia minimalnej ilości nominałów
+                tb_gornaIloscNominalow.Enabled = true;  // aktywowanie kontrolki do pwrowadzenia maksymalnej ilości nominałów
                 
             }
             else
                 // a jeśli domyślne
-                if (PB_IloscNominalowDefault.Checked)
+                if (rb_iloscNominalowDefault.Checked)
                 {
-                    PB_DolnaIloscNominalow.Enabled = false; // deaktywowanie kontrolki do pwrowadzenia minimalnej ilości nominałów
-                    PB_GornaIloscNominalow.Enabled = false; // deaktywowanie kontrolki do pwrowadzenia maksymalnej ilości nominałów
+                    tb_dolnaIloscNominalow.Enabled = false; // deaktywowanie kontrolki do pwrowadzenia minimalnej ilości nominałów
+                    tb_gornaIloscNominalow.Enabled = false; // deaktywowanie kontrolki do pwrowadzenia maksymalnej ilości nominałów
                    
                 }
             return;
@@ -374,40 +372,38 @@ namespace Bankomat
         }
        
         // obsługa klawisza wprowadzenia kwoty do wypłaty
-        private void PB_AkceptacjaKwoty_Click(object sender, EventArgs e)
+        private void AkceptacjaKwoty_Click(object sender, EventArgs e)
 
             
         {
-            
-            float PB_MinNominalow;                              // wywołanie zmiennej przechowującej minimalną możliwa ilośc dla danego nominału
-            float PB_MaxNominalow;                              // wywołanie zmiennej przechowującej maksymalną możliwa ilośc dla danego nominału
-            int PB_krok = -1;                                   // wywołanie pomocniczej zmiennej tablicowej PB_krok
+
+            int krok = -1;                                   // wywołanie pomocniczej zmiennej tablicowej PB_krok
             
             
 
             // sprawdzenie warunku wejściowego
-            if (!PB_PobierzDaneDoBankomatu(out PB_MinNominalow, out PB_MaxNominalow))
+            if (!PobierzDaneDoBankomatu(out float minNominalow, out float maxNominalow))
                 return;
 
             
 
 
             // sprawdzenie czy w kontrolce PB_KwotaDoWyplaty wpisano cokolwiek
-            if (string.IsNullOrEmpty(PB_KwotaDoWyplaty.Text))
+            if (string.IsNullOrEmpty(tb_kwotaDoWyplaty.Text))
             {
                 // zapalenie kontrolki errorProvider i zasygnalizowanie błędu urzytkownikowi
-                errorProvider1.SetError(PB_KwotaDoWyplaty,
+                errorProvider1.SetError(tb_kwotaDoWyplaty,
                     "ERROR: Wpisz kwotę jaką chcesz pobrać");
                 return;
-                // zakończenie sprawdzania czy wpisano cokolwiek do kontrolki PB_KwotaDoWyplaty
+                // zakończenie sprawdzania czy wpisano cokolwiek do kontrolki kwotaDoWyplaty
             }
             errorProvider1.Dispose();
 
 
             // wczytanie wartości kwoty do wypłaty z kontrolą poprawności zapisu
-            if (!float.TryParse(PB_KwotaDoWyplaty.Text, out PB_WyplacMiKwote) && (PB_WyplacMiKwote <= 0))
+            if (!float.TryParse(tb_kwotaDoWyplaty.Text, out wyplacMiKwote) && (wyplacMiKwote <= 0))
             {
-                errorProvider1.SetError(PB_KwotaDoWyplaty,
+                errorProvider1.SetError(tb_kwotaDoWyplaty,
                     "ERROR: W zapisie kwoty do wypłaty użyto niedozwolonych znaków");
                 return;
                 // zakończenie sprawdzania poprawności wpisania wartości PB_KwotaDoWyplaty
@@ -416,7 +412,7 @@ namespace Bankomat
 
 
             // sprawdzenie, czy kwota do wypłaty nie jest wieksza od stanu posiadania BANKOMATU
-            if (PB_WyplacMiKwote > PB_KapitałBankomatu)
+            if (wyplacMiKwote > kapitałBankomatu)
             {
                 MessageBox.Show("Wypłata nie może być zrealizowana, ponieważ BANKOMAT"
                       + "\n        nie posiada odpowiedniej kombinacji nominałów"
@@ -427,69 +423,69 @@ namespace Bankomat
 
             // obliczenie ile i jakich nominałów zostanie użyte do wypłaty
             {
-                float PB_NiepełnaWypłata = 0;   // wywołanie zmiennej pomocniczej przechowującej kwotę jeśli zabraknie szt danego nominału
-                PB_krok = 0;                    // ustawienie wartości początkowej dla zmiennej PB_krok
+                float niepełnaWypłata = 0;      // wywołanie zmiennej pomocniczej przechowującej kwotę jeśli zabraknie szt danego nominału
+                krok = 0;                       // ustawienie wartości początkowej dla zmiennej krok
 
-                PB_WypłaconoKlientowi = new int[PB_KasetkaZKasą.GetLength(0)];      // stworzenie egzemplarza tabeli do przechowywania wyników wypłaty
-                PB_PozostałoDoWypłaty = PB_WyplacMiKwote;                           // ustawienie wartości początkowej kwoty do wypłaty
+                wypłaconoKlientowi = new int[kasetkaZKasą.GetLength(0)];      // stworzenie egzemplarza tabeli do przechowywania wyników wypłaty
+                pozostałoDoWypłaty = wyplacMiKwote;                           // ustawienie wartości początkowej kwoty do wypłaty
 
                 // wywołanie pętli obliczającej 
-                while ((PB_krok < PB_KasetkaZKasą.GetLength(0)) && (PB_PozostałoDoWypłaty >= 0.1F))
+                while ((krok < kasetkaZKasą.GetLength(0)) && (pozostałoDoWypłaty >= 0.1F))
                 {
-                    PB_IlośćNominałówDoWypłaty = (int)(Math.Round((PB_PozostałoDoWypłaty / PB_KasetkaZKasą[PB_krok, 1]), 2));
-                    while (PB_KasetkaZKasą[PB_krok, 0] == 0)
+                    ilośćNominałówDoWypłaty = (int)(Math.Round((pozostałoDoWypłaty / kasetkaZKasą[krok, 1]), 2));
+                    while (kasetkaZKasą[krok, 0] == 0)
                     {
-                        PB_krok++;
+                        krok++;
                     }
 
 
-                    if (PB_KasetkaZKasą[PB_krok, 0] <= PB_IlośćNominałówDoWypłaty)
+                    if (kasetkaZKasą[krok, 0] <= ilośćNominałówDoWypłaty)
                     {
-                            PB_IlośćNominałówDoWypłaty = (int)PB_KasetkaZKasą[PB_krok, 0];
-                            PB_KasetkaZKasą[PB_krok, 0] = 0;
-                            PB_NiepełnaWypłata = (PB_IlośćNominałówDoWypłaty * PB_KasetkaZKasą[PB_krok, 1]);
-                            PB_PozostałoDoWypłaty = (PB_PozostałoDoWypłaty - PB_NiepełnaWypłata);
-                            PB_WypłaconoKlientowi[PB_krok] = PB_IlośćNominałówDoWypłaty;
-                            PB_krok++;
+                            ilośćNominałówDoWypłaty = (int)kasetkaZKasą[krok, 0];
+                            kasetkaZKasą[krok, 0] = 0;
+                            niepełnaWypłata = (ilośćNominałówDoWypłaty * kasetkaZKasą[krok, 1]);
+                            pozostałoDoWypłaty = (pozostałoDoWypłaty - niepełnaWypłata);
+                            wypłaconoKlientowi[krok] = ilośćNominałówDoWypłaty;
+                            krok++;
                     }
 
                     else
-                        if (PB_KasetkaZKasą[PB_krok, 0] > PB_IlośćNominałówDoWypłaty)
+                        if (kasetkaZKasą[krok, 0] > ilośćNominałówDoWypłaty)
                         {
-                            PB_WypłaconoKlientowi[PB_krok] = PB_IlośćNominałówDoWypłaty;
-                            PB_PozostałoDoWypłaty = (PB_PozostałoDoWypłaty - (PB_IlośćNominałówDoWypłaty * PB_KasetkaZKasą[PB_krok, 1]));
-                            PB_KasetkaZKasą[PB_krok, 0] = PB_KasetkaZKasą[PB_krok, 0] - PB_IlośćNominałówDoWypłaty;
-                            PB_krok++;
+                            wypłaconoKlientowi[krok] = ilośćNominałówDoWypłaty;
+                            pozostałoDoWypłaty = (pozostałoDoWypłaty - (ilośćNominałówDoWypłaty * kasetkaZKasą[krok, 1]));
+                            kasetkaZKasą[krok, 0] = kasetkaZKasą[krok, 0] - ilośćNominałówDoWypłaty;
+                            krok++;
                         }
                 }
                 
-                PB_KapitałBankomatu = PB_KapitałBankomatu - PB_WyplacMiKwote;
+                kapitałBankomatu = kapitałBankomatu - wyplacMiKwote;
 
 
-                // Napełnianie kontrolki DataGridView PB_WypłaconoKlientowi kolekcją danych
+                // Napełnianie kontrolki DataGridView wypłaconoKlientowi kolekcją danych
                 
-                int PB_Tabela = 0;                      // zmienna pomocnicza trzymająca krok wszystkich źródłowych obiektów
-                PB_ZestawienieWypłaty.RowCount = 0;     // ustawienie artości początkowej dla liczby wierszy PB_WypłaconoKlientowi
+                int tabela = 0;                          // zmienna pomocnicza trzymająca krok wszystkich źródłowych obiektów
+                dgw_zestawienieWypłaty.RowCount = 0;     // ustawienie artości początkowej dla liczby wierszy wypłaconoKlientowi
 
-                // pętla łącząca dane z 3 tablic w jednej kontrolce DataGridView PB_WypłaconoKlientowi
+                // pętla łącząca dane z 3 tablic w jednej kontrolce DataGridView wypłaconoKlientowi
                 do
                 {
-                    PB_ZestawienieWypłaty.Rows.Add();
-                    PB_ZestawienieWypłaty.Rows[PB_Tabela].Cells[0].Value = PB_WypłaconoKlientowi[PB_Tabela].ToString();
-                    PB_ZestawienieWypłaty.Rows[PB_Tabela].Cells[1].Value = PB_KasetkaZKasą[PB_Tabela, 1].ToString();
-                    PB_ZestawienieWypłaty.Rows[PB_Tabela].Cells[2].Value = PB_SymbolWaluty[PB_Tabela];
-                    PB_Tabela++;
+                    dgw_zestawienieWypłaty.Rows.Add();
+                    dgw_zestawienieWypłaty.Rows[tabela].Cells[0].Value = wypłaconoKlientowi[tabela].ToString();
+                    dgw_zestawienieWypłaty.Rows[tabela].Cells[1].Value = kasetkaZKasą[tabela, 1].ToString();
+                    dgw_zestawienieWypłaty.Rows[tabela].Cells[2].Value = symbolWaluty[tabela];
+                    tabela++;
                 }
-                while (PB_Tabela < PB_WypłaconoKlientowi.Length);   // warunek zakończenia pętli
+                while (tabela < wypłaconoKlientowi.Length);   // warunek zakończenia pętli
 
 
                 // usuwanie z kontrolki DataGridView wierszy z zerowymi danymi
-                for (int PB_usuń = 0; PB_usuń < PB_ZestawienieWypłaty.Rows.Count; PB_usuń++)
+                for (int usuń = 0; usuń < dgw_zestawienieWypłaty.Rows.Count; usuń++)
                 {
-                    if (string.Equals(PB_ZestawienieWypłaty[0, PB_usuń].Value as string, "0"))
+                    if (string.Equals(dgw_zestawienieWypłaty[0, usuń].Value as string, "0"))
                     {
-                        PB_ZestawienieWypłaty.Rows.RemoveAt(PB_usuń);
-                        PB_usuń--;
+                        dgw_zestawienieWypłaty.Rows.RemoveAt(usuń);
+                        usuń--;
                     }
                 }
          }
@@ -500,54 +496,54 @@ namespace Bankomat
             
                 
 
-            ((Control)this.PB_ZakladkaZW).Enabled = false;   // deaktywacja zakładki "Konfiguracja Bankomatu"
-            ((Control)this.PB_ZakladkaWN).Enabled = true;   // aktywacja zakłądki "Zlecenie Wypłaty"
-            PB_GrZakladek.SelectedTab = PB_ZakladkaWN;      // zmiana wybranej zakładki na "Zlecenie Wypłaty"
+            ((Control)this.zakladkaZW).Enabled = false;   // deaktywacja zakładki "Konfiguracja Bankomatu"
+            ((Control)this.zakladkaWN).Enabled = true;    // aktywacja zakłądki "Zlecenie Wypłaty"
+            grZakladek.SelectedTab = zakladkaWN;          // zmiana wybranej zakładki na "Zlecenie Wypłaty"
         }
 
 
-        private void PB_WybranaWalutaWyplaty_SelectedIndexChanged(object sender, EventArgs e)
+        private void WybranaWalutaWyplaty_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            int PB_SelectedIndex = PB_WybranaWalutaWyplaty.SelectedIndex;
-            Object PB_SelectedItem = PB_WybranaWalutaWyplaty.SelectedItem;
+            int selectedIndex = cb_wybranaWalutaWyplaty.SelectedIndex;
+            Object selectedItem = cb_wybranaWalutaWyplaty.SelectedItem;
 
             // użytkownik określił walutę
-            switch (PB_SelectedIndex)
+            switch (selectedIndex)
             {
                 case 0:
-                    PB_Waluta = 1;
+                    waluta = 1;
                     break;
                 case 1:
-                    PB_Waluta = 2;
+                    waluta = 2;
                     break;
                 case 2:
-                    PB_Waluta = 3;
+                    waluta = 3;
                     break;
                 case 3:
-                    PB_Waluta = 4;
+                    waluta = 4;
                     break;
             }
         }
 
-        private void PB_Resetuj_Click(object sender, EventArgs e)
+        private void Resetuj_Click(object sender, EventArgs e)
         {
-            ((Control)this.PB_ZakladkaZW).Enabled = true;   // deaktywacja zakładki "Konfiguracja Bankomatu"
-            ((Control)this.PB_ZakladkaWN).Enabled = false;   // aktywacja zakłądki "Zlecenie Wypłaty"
-            PB_GrZakladek.SelectedTab = PB_ZakladkaZW;      // zmiana wybranej zakładki na "Zlecenie Wy;płaty"
-            PB_KwotaDoWyplaty.Text = ("");
+            ((Control)this.zakladkaZW).Enabled = true;    // deaktywacja zakładki "Konfiguracja Bankomatu"
+            ((Control)this.zakladkaWN).Enabled = false;   // aktywacja zakłądki "Zlecenie Wypłaty"
+            grZakladek.SelectedTab = zakladkaZW;          // zmiana wybranej zakładki na "Zlecenie Wy;płaty"
+            tb_kwotaDoWyplaty.Text = ("");
            
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
 
 
         // ograniczenie możliwości wpisywania do pola tekstowego pobierającego minimalna ilość
         // nominałów - dopuszczalne są jedynie znaki cyfr i znak backspace
-        private void PB_DolnaIloscNominalow_KeyPress(object sender, KeyPressEventArgs e)
+        private void DolnaIloscNominalow_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8;
         }
@@ -555,7 +551,7 @@ namespace Bankomat
 
         // ograniczenie możliwości wpisywania do pola tekstowego pobierającego maksymalną ilość
         // nominałów - dopuszczalne są jedynie znaki cyfr i znak backspace
-        private void PB_GornaIloscNominalow_KeyPress(object sender, KeyPressEventArgs e)
+        private void GornaIloscNominalow_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8;
         }
@@ -563,12 +559,12 @@ namespace Bankomat
 
         // ograniczenie możliwości wpisywania do pola tekstowego pobierającego maksymalną ilość
         // nominałów - dopuszczalne są jedynie znaki cyfr , znak backspace i przecinek
-        private void PB_KwotaDoWyplaty_KeyPress(object sender, KeyPressEventArgs e)
+        private void KwotaDoWyplaty_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44;
         }
 
-        private void PB_Koniec_Click(object sender, EventArgs e)
+        private void Koniec_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

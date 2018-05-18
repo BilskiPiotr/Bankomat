@@ -1,6 +1,6 @@
 ﻿namespace Bankomat
 {
-    partial class PB_Bankomat
+    partial class Bankomat
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -29,399 +29,399 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.PB_ZakladkaK = new System.Windows.Forms.TabPage();
-            this.PB_CopyrightZ1 = new System.Windows.Forms.Label();
-            this.PB_NapelnienieBankomatu = new System.Windows.Forms.Button();
-            this.PB_GornaIloscNominalow = new System.Windows.Forms.TextBox();
-            this.PB_DolnaIloscNominalow = new System.Windows.Forms.TextBox();
-            this.PB_Opis5 = new System.Windows.Forms.Label();
-            this.PB_Opis4 = new System.Windows.Forms.Label();
-            this.PB_UstalenieSposobuNapelnianiaBankomatu = new System.Windows.Forms.GroupBox();
-            this.PB_LiczbaNominalowRandom = new System.Windows.Forms.RadioButton();
-            this.PB_IloscNominalowDefault = new System.Windows.Forms.RadioButton();
-            this.PB_Opis3 = new System.Windows.Forms.Label();
-            this.PB_Opis2 = new System.Windows.Forms.Label();
-            this.PB_Opis1 = new System.Windows.Forms.Label();
-            this.PB_WybranaWalutaWyplaty = new System.Windows.Forms.ComboBox();
-            this.PB_GrZakladek = new System.Windows.Forms.TabControl();
-            this.PB_ZakladkaZW = new System.Windows.Forms.TabPage();
-            this.PB_WalutaInfo = new System.Windows.Forms.Label();
-            this.PB_CopyrightZ2 = new System.Windows.Forms.Label();
-            this.PB_AkceptacjaKwoty = new System.Windows.Forms.Button();
-            this.PB_KwotaDoWyplaty = new System.Windows.Forms.TextBox();
-            this.PB_Opis8 = new System.Windows.Forms.Label();
-            this.PB_Opis7 = new System.Windows.Forms.Label();
-            this.PB_Opis6 = new System.Windows.Forms.Label();
-            this.PB_ZakladkaWN = new System.Windows.Forms.TabPage();
-            this.PB_CopyrightZ3 = new System.Windows.Forms.Label();
-            this.PB_Koniec = new System.Windows.Forms.Button();
-            this.PB_Resetuj = new System.Windows.Forms.Button();
-            this.PB_Opis13 = new System.Windows.Forms.Label();
-            this.PB_Opis12 = new System.Windows.Forms.Label();
-            this.PB_ZestawienieWypłaty = new System.Windows.Forms.DataGridView();
+            this.zakladkaK = new System.Windows.Forms.TabPage();
+            this.lb_copyrightZ1 = new System.Windows.Forms.Label();
+            this.bt_napelnienieBankomatu = new System.Windows.Forms.Button();
+            this.tb_gornaIloscNominalow = new System.Windows.Forms.TextBox();
+            this.tb_dolnaIloscNominalow = new System.Windows.Forms.TextBox();
+            this.lb_opis5 = new System.Windows.Forms.Label();
+            this.lb_opis4 = new System.Windows.Forms.Label();
+            this.gb_ustalenieSposobuNapelnianiaBankomatu = new System.Windows.Forms.GroupBox();
+            this.rb_liczbaNominalowRandom = new System.Windows.Forms.RadioButton();
+            this.rb_iloscNominalowDefault = new System.Windows.Forms.RadioButton();
+            this.lb_opis3 = new System.Windows.Forms.Label();
+            this.lb_opis2 = new System.Windows.Forms.Label();
+            this.lb_opis1 = new System.Windows.Forms.Label();
+            this.cb_wybranaWalutaWyplaty = new System.Windows.Forms.ComboBox();
+            this.grZakladek = new System.Windows.Forms.TabControl();
+            this.zakladkaZW = new System.Windows.Forms.TabPage();
+            this.walutaInfo = new System.Windows.Forms.Label();
+            this.lb_copyrightZ2 = new System.Windows.Forms.Label();
+            this.bt_akceptacjaKwoty = new System.Windows.Forms.Button();
+            this.tb_kwotaDoWyplaty = new System.Windows.Forms.TextBox();
+            this.lb_opis8 = new System.Windows.Forms.Label();
+            this.lb_opis7 = new System.Windows.Forms.Label();
+            this.lb_opis6 = new System.Windows.Forms.Label();
+            this.zakladkaWN = new System.Windows.Forms.TabPage();
+            this.lb_copyrightZ3 = new System.Windows.Forms.Label();
+            this.bt_koniec = new System.Windows.Forms.Button();
+            this.bt_resetuj = new System.Windows.Forms.Button();
+            this.lb_opis13 = new System.Windows.Forms.Label();
+            this.lb_opis12 = new System.Windows.Forms.Label();
+            this.dgw_zestawienieWypłaty = new System.Windows.Forms.DataGridView();
             this.Nominał = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ilość = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Waluta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PB_Opis11 = new System.Windows.Forms.Label();
-            this.PB_Opis9 = new System.Windows.Forms.Label();
-            this.PB_Opis10 = new System.Windows.Forms.Label();
+            this.lb_opis11 = new System.Windows.Forms.Label();
+            this.lb_opis9 = new System.Windows.Forms.Label();
+            this.lb_opis10 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.PB_ZakladkaK.SuspendLayout();
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.SuspendLayout();
-            this.PB_GrZakladek.SuspendLayout();
-            this.PB_ZakladkaZW.SuspendLayout();
-            this.PB_ZakladkaWN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_ZestawienieWypłaty)).BeginInit();
+            this.zakladkaK.SuspendLayout();
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.SuspendLayout();
+            this.grZakladek.SuspendLayout();
+            this.zakladkaZW.SuspendLayout();
+            this.zakladkaWN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_zestawienieWypłaty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // PB_ZakladkaK
+            // zakladkaK
             // 
-            this.PB_ZakladkaK.BackColor = System.Drawing.Color.SeaShell;
-            this.PB_ZakladkaK.Controls.Add(this.PB_CopyrightZ1);
-            this.PB_ZakladkaK.Controls.Add(this.PB_NapelnienieBankomatu);
-            this.PB_ZakladkaK.Controls.Add(this.PB_GornaIloscNominalow);
-            this.PB_ZakladkaK.Controls.Add(this.PB_DolnaIloscNominalow);
-            this.PB_ZakladkaK.Controls.Add(this.PB_Opis5);
-            this.PB_ZakladkaK.Controls.Add(this.PB_Opis4);
-            this.PB_ZakladkaK.Controls.Add(this.PB_UstalenieSposobuNapelnianiaBankomatu);
-            this.PB_ZakladkaK.Controls.Add(this.PB_Opis3);
-            this.PB_ZakladkaK.Controls.Add(this.PB_Opis2);
-            this.PB_ZakladkaK.Controls.Add(this.PB_Opis1);
-            this.PB_ZakladkaK.Controls.Add(this.PB_WybranaWalutaWyplaty);
-            this.PB_ZakladkaK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PB_ZakladkaK.Location = new System.Drawing.Point(4, 22);
-            this.PB_ZakladkaK.Name = "PB_ZakladkaK";
-            this.PB_ZakladkaK.Padding = new System.Windows.Forms.Padding(3);
-            this.PB_ZakladkaK.Size = new System.Drawing.Size(617, 409);
-            this.PB_ZakladkaK.TabIndex = 0;
-            this.PB_ZakladkaK.Text = "Konfiguracja Bankomatu";
+            this.zakladkaK.BackColor = System.Drawing.Color.SeaShell;
+            this.zakladkaK.Controls.Add(this.lb_copyrightZ1);
+            this.zakladkaK.Controls.Add(this.bt_napelnienieBankomatu);
+            this.zakladkaK.Controls.Add(this.tb_gornaIloscNominalow);
+            this.zakladkaK.Controls.Add(this.tb_dolnaIloscNominalow);
+            this.zakladkaK.Controls.Add(this.lb_opis5);
+            this.zakladkaK.Controls.Add(this.lb_opis4);
+            this.zakladkaK.Controls.Add(this.gb_ustalenieSposobuNapelnianiaBankomatu);
+            this.zakladkaK.Controls.Add(this.lb_opis3);
+            this.zakladkaK.Controls.Add(this.lb_opis2);
+            this.zakladkaK.Controls.Add(this.lb_opis1);
+            this.zakladkaK.Controls.Add(this.cb_wybranaWalutaWyplaty);
+            this.zakladkaK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.zakladkaK.Location = new System.Drawing.Point(4, 22);
+            this.zakladkaK.Name = "zakladkaK";
+            this.zakladkaK.Padding = new System.Windows.Forms.Padding(3);
+            this.zakladkaK.Size = new System.Drawing.Size(617, 409);
+            this.zakladkaK.TabIndex = 0;
+            this.zakladkaK.Text = "Konfiguracja Bankomatu";
             // 
-            // PB_CopyrightZ1
+            // lb_copyrightZ1
             // 
-            this.PB_CopyrightZ1.AutoSize = true;
-            this.PB_CopyrightZ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_CopyrightZ1.Location = new System.Drawing.Point(398, 385);
-            this.PB_CopyrightZ1.Name = "PB_CopyrightZ1";
-            this.PB_CopyrightZ1.Size = new System.Drawing.Size(164, 13);
-            this.PB_CopyrightZ1.TabIndex = 10;
-            this.PB_CopyrightZ1.Text = "Autor: Piotr Bilski nr indexu 43335";
+            this.lb_copyrightZ1.AutoSize = true;
+            this.lb_copyrightZ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_copyrightZ1.Location = new System.Drawing.Point(398, 385);
+            this.lb_copyrightZ1.Name = "lb_copyrightZ1";
+            this.lb_copyrightZ1.Size = new System.Drawing.Size(164, 13);
+            this.lb_copyrightZ1.TabIndex = 10;
+            this.lb_copyrightZ1.Text = "Autor: Piotr Bilski nr indexu 43335";
             // 
-            // PB_NapelnienieBankomatu
+            // bt_napelnienieBankomatu
             // 
-            this.PB_NapelnienieBankomatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_NapelnienieBankomatu.Location = new System.Drawing.Point(412, 315);
-            this.PB_NapelnienieBankomatu.Name = "PB_NapelnienieBankomatu";
-            this.PB_NapelnienieBankomatu.Size = new System.Drawing.Size(140, 40);
-            this.PB_NapelnienieBankomatu.TabIndex = 9;
-            this.PB_NapelnienieBankomatu.Text = "Napełnij bankomat";
-            this.PB_NapelnienieBankomatu.UseVisualStyleBackColor = true;
-            this.PB_NapelnienieBankomatu.Click += new System.EventHandler(this.PB_NapelnienieBankomatu_Click);
+            this.bt_napelnienieBankomatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_napelnienieBankomatu.Location = new System.Drawing.Point(412, 315);
+            this.bt_napelnienieBankomatu.Name = "bt_napelnienieBankomatu";
+            this.bt_napelnienieBankomatu.Size = new System.Drawing.Size(140, 40);
+            this.bt_napelnienieBankomatu.TabIndex = 9;
+            this.bt_napelnienieBankomatu.Text = "Napełnij bankomat";
+            this.bt_napelnienieBankomatu.UseVisualStyleBackColor = true;
+            this.bt_napelnienieBankomatu.Click += new System.EventHandler(this.NapelnienieBankomatu_Click);
             // 
-            // PB_GornaIloscNominalow
+            // tb_gornaIloscNominalow
             // 
-            this.PB_GornaIloscNominalow.Enabled = false;
-            this.PB_GornaIloscNominalow.Location = new System.Drawing.Point(75, 335);
-            this.PB_GornaIloscNominalow.Name = "PB_GornaIloscNominalow";
-            this.PB_GornaIloscNominalow.Size = new System.Drawing.Size(100, 20);
-            this.PB_GornaIloscNominalow.TabIndex = 8;
+            this.tb_gornaIloscNominalow.Enabled = false;
+            this.tb_gornaIloscNominalow.Location = new System.Drawing.Point(75, 335);
+            this.tb_gornaIloscNominalow.Name = "tb_gornaIloscNominalow";
+            this.tb_gornaIloscNominalow.Size = new System.Drawing.Size(100, 20);
+            this.tb_gornaIloscNominalow.TabIndex = 8;
             // 
-            // PB_DolnaIloscNominalow
+            // tb_dolnaIloscNominalow
             // 
-            this.PB_DolnaIloscNominalow.Enabled = false;
-            this.PB_DolnaIloscNominalow.Location = new System.Drawing.Point(75, 277);
-            this.PB_DolnaIloscNominalow.Name = "PB_DolnaIloscNominalow";
-            this.PB_DolnaIloscNominalow.Size = new System.Drawing.Size(100, 20);
-            this.PB_DolnaIloscNominalow.TabIndex = 7;
+            this.tb_dolnaIloscNominalow.Enabled = false;
+            this.tb_dolnaIloscNominalow.Location = new System.Drawing.Point(75, 277);
+            this.tb_dolnaIloscNominalow.Name = "tb_dolnaIloscNominalow";
+            this.tb_dolnaIloscNominalow.Size = new System.Drawing.Size(100, 20);
+            this.tb_dolnaIloscNominalow.TabIndex = 7;
             // 
-            // PB_Opis5
+            // lb_opis5
             // 
-            this.PB_Opis5.AutoSize = true;
-            this.PB_Opis5.Location = new System.Drawing.Point(72, 319);
-            this.PB_Opis5.Name = "PB_Opis5";
-            this.PB_Opis5.Size = new System.Drawing.Size(181, 13);
-            this.PB_Opis5.TabIndex = 6;
-            this.PB_Opis5.Text = "Maksymalna ilość każdego nominału";
+            this.lb_opis5.AutoSize = true;
+            this.lb_opis5.Location = new System.Drawing.Point(72, 319);
+            this.lb_opis5.Name = "lb_opis5";
+            this.lb_opis5.Size = new System.Drawing.Size(181, 13);
+            this.lb_opis5.TabIndex = 6;
+            this.lb_opis5.Text = "Maksymalna ilość każdego nominału";
             // 
-            // PB_Opis4
+            // lb_opis4
             // 
-            this.PB_Opis4.AutoSize = true;
-            this.PB_Opis4.Location = new System.Drawing.Point(72, 261);
-            this.PB_Opis4.Name = "PB_Opis4";
-            this.PB_Opis4.Size = new System.Drawing.Size(169, 13);
-            this.PB_Opis4.TabIndex = 5;
-            this.PB_Opis4.Text = "Minimalna ilość każdego nominału";
+            this.lb_opis4.AutoSize = true;
+            this.lb_opis4.Location = new System.Drawing.Point(72, 261);
+            this.lb_opis4.Name = "lb_opis4";
+            this.lb_opis4.Size = new System.Drawing.Size(169, 13);
+            this.lb_opis4.TabIndex = 5;
+            this.lb_opis4.Text = "Minimalna ilość każdego nominału";
             // 
-            // PB_UstalenieSposobuNapelnianiaBankomatu
+            // gb_ustalenieSposobuNapelnianiaBankomatu
             // 
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.Controls.Add(this.PB_LiczbaNominalowRandom);
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.Controls.Add(this.PB_IloscNominalowDefault);
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.Location = new System.Drawing.Point(321, 138);
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.Name = "PB_UstalenieSposobuNapelnianiaBankomatu";
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.Size = new System.Drawing.Size(231, 94);
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.TabIndex = 4;
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.TabStop = false;
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.Text = "Wybierz sposób napełnienia bankomatu";
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.Controls.Add(this.rb_liczbaNominalowRandom);
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.Controls.Add(this.rb_iloscNominalowDefault);
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.Location = new System.Drawing.Point(321, 138);
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.Name = "gb_ustalenieSposobuNapelnianiaBankomatu";
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.Size = new System.Drawing.Size(231, 94);
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.TabIndex = 4;
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.TabStop = false;
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.Text = "Wybierz sposób napełnienia bankomatu";
             // 
-            // PB_LiczbaNominalowRandom
+            // rb_liczbaNominalowRandom
             // 
-            this.PB_LiczbaNominalowRandom.AutoSize = true;
-            this.PB_LiczbaNominalowRandom.Location = new System.Drawing.Point(23, 61);
-            this.PB_LiczbaNominalowRandom.Name = "PB_LiczbaNominalowRandom";
-            this.PB_LiczbaNominalowRandom.Size = new System.Drawing.Size(141, 17);
-            this.PB_LiczbaNominalowRandom.TabIndex = 1;
-            this.PB_LiczbaNominalowRandom.Text = "Losowa ilość nominałów";
-            this.PB_LiczbaNominalowRandom.UseVisualStyleBackColor = true;
-            this.PB_LiczbaNominalowRandom.CheckedChanged += new System.EventHandler(this.PB_LiczbaNominalowRandom_CheckedChanged);
+            this.rb_liczbaNominalowRandom.AutoSize = true;
+            this.rb_liczbaNominalowRandom.Location = new System.Drawing.Point(23, 61);
+            this.rb_liczbaNominalowRandom.Name = "rb_liczbaNominalowRandom";
+            this.rb_liczbaNominalowRandom.Size = new System.Drawing.Size(141, 17);
+            this.rb_liczbaNominalowRandom.TabIndex = 1;
+            this.rb_liczbaNominalowRandom.Text = "Losowa ilość nominałów";
+            this.rb_liczbaNominalowRandom.UseVisualStyleBackColor = true;
+            this.rb_liczbaNominalowRandom.CheckedChanged += new System.EventHandler(this.LiczbaNominalowRandom_CheckedChanged);
             // 
-            // PB_IloscNominalowDefault
+            // rb_iloscNominalowDefault
             // 
-            this.PB_IloscNominalowDefault.AutoSize = true;
-            this.PB_IloscNominalowDefault.Checked = true;
-            this.PB_IloscNominalowDefault.Location = new System.Drawing.Point(23, 29);
-            this.PB_IloscNominalowDefault.Name = "PB_IloscNominalowDefault";
-            this.PB_IloscNominalowDefault.Size = new System.Drawing.Size(173, 17);
-            this.PB_IloscNominalowDefault.TabIndex = 0;
-            this.PB_IloscNominalowDefault.TabStop = true;
-            this.PB_IloscNominalowDefault.Text = "Domyślne Wartości Nominałów";
-            this.PB_IloscNominalowDefault.UseVisualStyleBackColor = true;
+            this.rb_iloscNominalowDefault.AutoSize = true;
+            this.rb_iloscNominalowDefault.Checked = true;
+            this.rb_iloscNominalowDefault.Location = new System.Drawing.Point(23, 29);
+            this.rb_iloscNominalowDefault.Name = "rb_iloscNominalowDefault";
+            this.rb_iloscNominalowDefault.Size = new System.Drawing.Size(173, 17);
+            this.rb_iloscNominalowDefault.TabIndex = 0;
+            this.rb_iloscNominalowDefault.TabStop = true;
+            this.rb_iloscNominalowDefault.Text = "Domyślne Wartości Nominałów";
+            this.rb_iloscNominalowDefault.UseVisualStyleBackColor = true;
             // 
-            // PB_Opis3
+            // lb_opis3
             // 
-            this.PB_Opis3.AutoSize = true;
-            this.PB_Opis3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis3.Location = new System.Drawing.Point(55, 138);
-            this.PB_Opis3.Name = "PB_Opis3";
-            this.PB_Opis3.Size = new System.Drawing.Size(160, 13);
-            this.PB_Opis3.TabIndex = 3;
-            this.PB_Opis3.Text = "Wybierz walutę do wypłaty";
+            this.lb_opis3.AutoSize = true;
+            this.lb_opis3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis3.Location = new System.Drawing.Point(55, 138);
+            this.lb_opis3.Name = "lb_opis3";
+            this.lb_opis3.Size = new System.Drawing.Size(160, 13);
+            this.lb_opis3.TabIndex = 3;
+            this.lb_opis3.Text = "Wybierz walutę do wypłaty";
             // 
-            // PB_Opis2
+            // lb_opis2
             // 
-            this.PB_Opis2.AutoSize = true;
-            this.PB_Opis2.Location = new System.Drawing.Point(319, 66);
-            this.PB_Opis2.Name = "PB_Opis2";
-            this.PB_Opis2.Size = new System.Drawing.Size(233, 13);
-            this.PB_Opis2.TabIndex = 2;
-            this.PB_Opis2.Text = "Zarządzanie parametrami startowymi bankomatu";
+            this.lb_opis2.AutoSize = true;
+            this.lb_opis2.Location = new System.Drawing.Point(319, 66);
+            this.lb_opis2.Name = "lb_opis2";
+            this.lb_opis2.Size = new System.Drawing.Size(233, 13);
+            this.lb_opis2.TabIndex = 2;
+            this.lb_opis2.Text = "Zarządzanie parametrami startowymi bankomatu";
             // 
-            // PB_Opis1
+            // lb_opis1
             // 
-            this.PB_Opis1.AutoSize = true;
-            this.PB_Opis1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis1.Location = new System.Drawing.Point(373, 42);
-            this.PB_Opis1.Name = "PB_Opis1";
-            this.PB_Opis1.Size = new System.Drawing.Size(125, 24);
-            this.PB_Opis1.TabIndex = 1;
-            this.PB_Opis1.Text = "BANKOMAT";
+            this.lb_opis1.AutoSize = true;
+            this.lb_opis1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis1.Location = new System.Drawing.Point(373, 42);
+            this.lb_opis1.Name = "lb_opis1";
+            this.lb_opis1.Size = new System.Drawing.Size(125, 24);
+            this.lb_opis1.TabIndex = 1;
+            this.lb_opis1.Text = "BANKOMAT";
             // 
-            // PB_WybranaWalutaWyplaty
+            // cb_wybranaWalutaWyplaty
             // 
-            this.PB_WybranaWalutaWyplaty.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_WybranaWalutaWyplaty.FormattingEnabled = true;
-            this.PB_WybranaWalutaWyplaty.Items.AddRange(new object[] {
+            this.cb_wybranaWalutaWyplaty.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_wybranaWalutaWyplaty.FormattingEnabled = true;
+            this.cb_wybranaWalutaWyplaty.Items.AddRange(new object[] {
             "PLN",
             "USD",
             "EUR",
             "GBP"});
-            this.PB_WybranaWalutaWyplaty.Location = new System.Drawing.Point(75, 154);
-            this.PB_WybranaWalutaWyplaty.Name = "PB_WybranaWalutaWyplaty";
-            this.PB_WybranaWalutaWyplaty.Size = new System.Drawing.Size(121, 21);
-            this.PB_WybranaWalutaWyplaty.TabIndex = 0;
-            this.PB_WybranaWalutaWyplaty.Text = "PLN";
-            this.PB_WybranaWalutaWyplaty.SelectedIndexChanged += new System.EventHandler(this.PB_WybranaWalutaWyplaty_SelectedIndexChanged);
+            this.cb_wybranaWalutaWyplaty.Location = new System.Drawing.Point(75, 154);
+            this.cb_wybranaWalutaWyplaty.Name = "cb_wybranaWalutaWyplaty";
+            this.cb_wybranaWalutaWyplaty.Size = new System.Drawing.Size(121, 21);
+            this.cb_wybranaWalutaWyplaty.TabIndex = 0;
+            this.cb_wybranaWalutaWyplaty.Text = "PLN";
+            this.cb_wybranaWalutaWyplaty.SelectedIndexChanged += new System.EventHandler(this.WybranaWalutaWyplaty_SelectedIndexChanged);
             // 
-            // PB_GrZakladek
+            // grZakladek
             // 
-            this.PB_GrZakladek.Controls.Add(this.PB_ZakladkaK);
-            this.PB_GrZakladek.Controls.Add(this.PB_ZakladkaZW);
-            this.PB_GrZakladek.Controls.Add(this.PB_ZakladkaWN);
-            this.PB_GrZakladek.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.PB_GrZakladek.Location = new System.Drawing.Point(0, 0);
-            this.PB_GrZakladek.Name = "PB_GrZakladek";
-            this.PB_GrZakladek.SelectedIndex = 0;
-            this.PB_GrZakladek.Size = new System.Drawing.Size(625, 435);
-            this.PB_GrZakladek.TabIndex = 0;
-            this.PB_GrZakladek.TabStop = false;
-            this.PB_GrZakladek.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.PB_GrZakladek_DrawItem);
-            this.PB_GrZakladek.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.PB_GrZakladek_Selecting);
+            this.grZakladek.Controls.Add(this.zakladkaK);
+            this.grZakladek.Controls.Add(this.zakladkaZW);
+            this.grZakladek.Controls.Add(this.zakladkaWN);
+            this.grZakladek.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.grZakladek.Location = new System.Drawing.Point(0, 0);
+            this.grZakladek.Name = "grZakladek";
+            this.grZakladek.SelectedIndex = 0;
+            this.grZakladek.Size = new System.Drawing.Size(625, 435);
+            this.grZakladek.TabIndex = 0;
+            this.grZakladek.TabStop = false;
+            this.grZakladek.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.GrZakladek_DrawItem);
+            this.grZakladek.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.GrZakladek_Selecting);
             // 
-            // PB_ZakladkaZW
+            // zakladkaZW
             // 
-            this.PB_ZakladkaZW.BackColor = System.Drawing.Color.Beige;
-            this.PB_ZakladkaZW.Controls.Add(this.PB_WalutaInfo);
-            this.PB_ZakladkaZW.Controls.Add(this.PB_CopyrightZ2);
-            this.PB_ZakladkaZW.Controls.Add(this.PB_AkceptacjaKwoty);
-            this.PB_ZakladkaZW.Controls.Add(this.PB_KwotaDoWyplaty);
-            this.PB_ZakladkaZW.Controls.Add(this.PB_Opis8);
-            this.PB_ZakladkaZW.Controls.Add(this.PB_Opis7);
-            this.PB_ZakladkaZW.Controls.Add(this.PB_Opis6);
-            this.PB_ZakladkaZW.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PB_ZakladkaZW.Location = new System.Drawing.Point(4, 22);
-            this.PB_ZakladkaZW.Name = "PB_ZakladkaZW";
-            this.PB_ZakladkaZW.Padding = new System.Windows.Forms.Padding(3);
-            this.PB_ZakladkaZW.Size = new System.Drawing.Size(617, 409);
-            this.PB_ZakladkaZW.TabIndex = 1;
-            this.PB_ZakladkaZW.Text = "Zlecenie Wypłaty";
+            this.zakladkaZW.BackColor = System.Drawing.Color.Beige;
+            this.zakladkaZW.Controls.Add(this.walutaInfo);
+            this.zakladkaZW.Controls.Add(this.lb_copyrightZ2);
+            this.zakladkaZW.Controls.Add(this.bt_akceptacjaKwoty);
+            this.zakladkaZW.Controls.Add(this.tb_kwotaDoWyplaty);
+            this.zakladkaZW.Controls.Add(this.lb_opis8);
+            this.zakladkaZW.Controls.Add(this.lb_opis7);
+            this.zakladkaZW.Controls.Add(this.lb_opis6);
+            this.zakladkaZW.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.zakladkaZW.Location = new System.Drawing.Point(4, 22);
+            this.zakladkaZW.Name = "zakladkaZW";
+            this.zakladkaZW.Padding = new System.Windows.Forms.Padding(3);
+            this.zakladkaZW.Size = new System.Drawing.Size(617, 409);
+            this.zakladkaZW.TabIndex = 1;
+            this.zakladkaZW.Text = "Zlecenie Wypłaty";
             // 
-            // PB_WalutaInfo
+            // walutaInfo
             // 
-            this.PB_WalutaInfo.AutoSize = true;
-            this.PB_WalutaInfo.Location = new System.Drawing.Point(481, 174);
-            this.PB_WalutaInfo.Name = "PB_WalutaInfo";
-            this.PB_WalutaInfo.Size = new System.Drawing.Size(0, 13);
-            this.PB_WalutaInfo.TabIndex = 12;
+            this.walutaInfo.AutoSize = true;
+            this.walutaInfo.Location = new System.Drawing.Point(481, 174);
+            this.walutaInfo.Name = "walutaInfo";
+            this.walutaInfo.Size = new System.Drawing.Size(0, 13);
+            this.walutaInfo.TabIndex = 12;
             // 
-            // PB_CopyrightZ2
+            // lb_copyrightZ2
             // 
-            this.PB_CopyrightZ2.AutoSize = true;
-            this.PB_CopyrightZ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_CopyrightZ2.Location = new System.Drawing.Point(355, 374);
-            this.PB_CopyrightZ2.Name = "PB_CopyrightZ2";
-            this.PB_CopyrightZ2.Size = new System.Drawing.Size(164, 13);
-            this.PB_CopyrightZ2.TabIndex = 11;
-            this.PB_CopyrightZ2.Text = "Autor: Piotr Bilski nr indexu 43335";
+            this.lb_copyrightZ2.AutoSize = true;
+            this.lb_copyrightZ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_copyrightZ2.Location = new System.Drawing.Point(355, 374);
+            this.lb_copyrightZ2.Name = "lb_copyrightZ2";
+            this.lb_copyrightZ2.Size = new System.Drawing.Size(164, 13);
+            this.lb_copyrightZ2.TabIndex = 11;
+            this.lb_copyrightZ2.Text = "Autor: Piotr Bilski nr indexu 43335";
             // 
-            // PB_AkceptacjaKwoty
+            // bt_akceptacjaKwoty
             // 
-            this.PB_AkceptacjaKwoty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_AkceptacjaKwoty.Location = new System.Drawing.Point(377, 290);
-            this.PB_AkceptacjaKwoty.Name = "PB_AkceptacjaKwoty";
-            this.PB_AkceptacjaKwoty.Size = new System.Drawing.Size(121, 34);
-            this.PB_AkceptacjaKwoty.TabIndex = 6;
-            this.PB_AkceptacjaKwoty.Text = "AKCEPTUJĘ";
-            this.PB_AkceptacjaKwoty.UseVisualStyleBackColor = true;
-            this.PB_AkceptacjaKwoty.Click += new System.EventHandler(this.PB_AkceptacjaKwoty_Click);
+            this.bt_akceptacjaKwoty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_akceptacjaKwoty.Location = new System.Drawing.Point(377, 290);
+            this.bt_akceptacjaKwoty.Name = "bt_akceptacjaKwoty";
+            this.bt_akceptacjaKwoty.Size = new System.Drawing.Size(121, 34);
+            this.bt_akceptacjaKwoty.TabIndex = 6;
+            this.bt_akceptacjaKwoty.Text = "AKCEPTUJĘ";
+            this.bt_akceptacjaKwoty.UseVisualStyleBackColor = true;
+            this.bt_akceptacjaKwoty.Click += new System.EventHandler(this.AkceptacjaKwoty_Click);
             // 
-            // PB_KwotaDoWyplaty
+            // tb_kwotaDoWyplaty
             // 
-            this.PB_KwotaDoWyplaty.Location = new System.Drawing.Point(391, 171);
-            this.PB_KwotaDoWyplaty.Name = "PB_KwotaDoWyplaty";
-            this.PB_KwotaDoWyplaty.Size = new System.Drawing.Size(84, 20);
-            this.PB_KwotaDoWyplaty.TabIndex = 5;
-            this.PB_KwotaDoWyplaty.Text = "0 000,0";
-            this.PB_KwotaDoWyplaty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PB_KwotaDoWyplaty_KeyPress);
+            this.tb_kwotaDoWyplaty.Location = new System.Drawing.Point(391, 171);
+            this.tb_kwotaDoWyplaty.Name = "tb_kwotaDoWyplaty";
+            this.tb_kwotaDoWyplaty.Size = new System.Drawing.Size(84, 20);
+            this.tb_kwotaDoWyplaty.TabIndex = 5;
+            this.tb_kwotaDoWyplaty.Text = "0 000,0";
+            this.tb_kwotaDoWyplaty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KwotaDoWyplaty_KeyPress);
             // 
-            // PB_Opis8
+            // lb_opis8
             // 
-            this.PB_Opis8.AutoSize = true;
-            this.PB_Opis8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis8.Location = new System.Drawing.Point(101, 172);
-            this.PB_Opis8.Name = "PB_Opis8";
-            this.PB_Opis8.Size = new System.Drawing.Size(133, 15);
-            this.PB_Opis8.TabIndex = 4;
-            this.PB_Opis8.Text = "Podaj kwotę do wypłaty";
+            this.lb_opis8.AutoSize = true;
+            this.lb_opis8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis8.Location = new System.Drawing.Point(101, 172);
+            this.lb_opis8.Name = "lb_opis8";
+            this.lb_opis8.Size = new System.Drawing.Size(133, 15);
+            this.lb_opis8.TabIndex = 4;
+            this.lb_opis8.Text = "Podaj kwotę do wypłaty";
             // 
-            // PB_Opis7
+            // lb_opis7
             // 
-            this.PB_Opis7.AutoSize = true;
-            this.PB_Opis7.Location = new System.Drawing.Point(355, 66);
-            this.PB_Opis7.Name = "PB_Opis7";
-            this.PB_Opis7.Size = new System.Drawing.Size(154, 13);
-            this.PB_Opis7.TabIndex = 3;
-            this.PB_Opis7.Text = "Definiowanie kwoty do wypłaty";
+            this.lb_opis7.AutoSize = true;
+            this.lb_opis7.Location = new System.Drawing.Point(355, 66);
+            this.lb_opis7.Name = "lb_opis7";
+            this.lb_opis7.Size = new System.Drawing.Size(154, 13);
+            this.lb_opis7.TabIndex = 3;
+            this.lb_opis7.Text = "Definiowanie kwoty do wypłaty";
             // 
-            // PB_Opis6
+            // lb_opis6
             // 
-            this.PB_Opis6.AutoSize = true;
-            this.PB_Opis6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis6.Location = new System.Drawing.Point(373, 42);
-            this.PB_Opis6.Name = "PB_Opis6";
-            this.PB_Opis6.Size = new System.Drawing.Size(125, 24);
-            this.PB_Opis6.TabIndex = 2;
-            this.PB_Opis6.Text = "BANKOMAT";
+            this.lb_opis6.AutoSize = true;
+            this.lb_opis6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis6.Location = new System.Drawing.Point(373, 42);
+            this.lb_opis6.Name = "lb_opis6";
+            this.lb_opis6.Size = new System.Drawing.Size(125, 24);
+            this.lb_opis6.TabIndex = 2;
+            this.lb_opis6.Text = "BANKOMAT";
             // 
-            // PB_ZakladkaWN
+            // zakladkaWN
             // 
-            this.PB_ZakladkaWN.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.PB_ZakladkaWN.Controls.Add(this.PB_CopyrightZ3);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_Koniec);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_Resetuj);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_Opis13);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_Opis12);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_ZestawienieWypłaty);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_Opis11);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_Opis9);
-            this.PB_ZakladkaWN.Controls.Add(this.PB_Opis10);
-            this.PB_ZakladkaWN.Location = new System.Drawing.Point(4, 22);
-            this.PB_ZakladkaWN.Name = "PB_ZakladkaWN";
-            this.PB_ZakladkaWN.Padding = new System.Windows.Forms.Padding(3);
-            this.PB_ZakladkaWN.Size = new System.Drawing.Size(617, 409);
-            this.PB_ZakladkaWN.TabIndex = 2;
-            this.PB_ZakladkaWN.Text = "Wypłata Nominałów";
+            this.zakladkaWN.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.zakladkaWN.Controls.Add(this.lb_copyrightZ3);
+            this.zakladkaWN.Controls.Add(this.bt_koniec);
+            this.zakladkaWN.Controls.Add(this.bt_resetuj);
+            this.zakladkaWN.Controls.Add(this.lb_opis13);
+            this.zakladkaWN.Controls.Add(this.lb_opis12);
+            this.zakladkaWN.Controls.Add(this.dgw_zestawienieWypłaty);
+            this.zakladkaWN.Controls.Add(this.lb_opis11);
+            this.zakladkaWN.Controls.Add(this.lb_opis9);
+            this.zakladkaWN.Controls.Add(this.lb_opis10);
+            this.zakladkaWN.Location = new System.Drawing.Point(4, 22);
+            this.zakladkaWN.Name = "zakladkaWN";
+            this.zakladkaWN.Padding = new System.Windows.Forms.Padding(3);
+            this.zakladkaWN.Size = new System.Drawing.Size(617, 409);
+            this.zakladkaWN.TabIndex = 2;
+            this.zakladkaWN.Text = "Wypłata Nominałów";
             // 
-            // PB_CopyrightZ3
+            // lb_copyrightZ3
             // 
-            this.PB_CopyrightZ3.AutoSize = true;
-            this.PB_CopyrightZ3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_CopyrightZ3.Location = new System.Drawing.Point(435, 377);
-            this.PB_CopyrightZ3.Name = "PB_CopyrightZ3";
-            this.PB_CopyrightZ3.Size = new System.Drawing.Size(164, 13);
-            this.PB_CopyrightZ3.TabIndex = 11;
-            this.PB_CopyrightZ3.Text = "Autor: Piotr Bilski nr indexu 43335";
+            this.lb_copyrightZ3.AutoSize = true;
+            this.lb_copyrightZ3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_copyrightZ3.Location = new System.Drawing.Point(435, 377);
+            this.lb_copyrightZ3.Name = "lb_copyrightZ3";
+            this.lb_copyrightZ3.Size = new System.Drawing.Size(164, 13);
+            this.lb_copyrightZ3.TabIndex = 11;
+            this.lb_copyrightZ3.Text = "Autor: Piotr Bilski nr indexu 43335";
             // 
-            // PB_Koniec
+            // bt_koniec
             // 
-            this.PB_Koniec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Koniec.Location = new System.Drawing.Point(477, 309);
-            this.PB_Koniec.Name = "PB_Koniec";
-            this.PB_Koniec.Size = new System.Drawing.Size(75, 23);
-            this.PB_Koniec.TabIndex = 10;
-            this.PB_Koniec.Text = "KONIEC";
-            this.PB_Koniec.UseVisualStyleBackColor = true;
-            this.PB_Koniec.Click += new System.EventHandler(this.PB_Koniec_Click);
+            this.bt_koniec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_koniec.Location = new System.Drawing.Point(477, 309);
+            this.bt_koniec.Name = "bt_koniec";
+            this.bt_koniec.Size = new System.Drawing.Size(75, 23);
+            this.bt_koniec.TabIndex = 10;
+            this.bt_koniec.Text = "KONIEC";
+            this.bt_koniec.UseVisualStyleBackColor = true;
+            this.bt_koniec.Click += new System.EventHandler(this.Koniec_Click);
             // 
-            // PB_Resetuj
+            // bt_resetuj
             // 
-            this.PB_Resetuj.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Resetuj.Location = new System.Drawing.Point(477, 280);
-            this.PB_Resetuj.Name = "PB_Resetuj";
-            this.PB_Resetuj.Size = new System.Drawing.Size(75, 23);
-            this.PB_Resetuj.TabIndex = 9;
-            this.PB_Resetuj.Text = "RESETUJ";
-            this.PB_Resetuj.UseVisualStyleBackColor = true;
-            this.PB_Resetuj.Click += new System.EventHandler(this.PB_Resetuj_Click);
+            this.bt_resetuj.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_resetuj.Location = new System.Drawing.Point(477, 280);
+            this.bt_resetuj.Name = "bt_resetuj";
+            this.bt_resetuj.Size = new System.Drawing.Size(75, 23);
+            this.bt_resetuj.TabIndex = 9;
+            this.bt_resetuj.Text = "RESETUJ";
+            this.bt_resetuj.UseVisualStyleBackColor = true;
+            this.bt_resetuj.Click += new System.EventHandler(this.Resetuj_Click);
             // 
-            // PB_Opis13
+            // lb_opis13
             // 
-            this.PB_Opis13.AutoSize = true;
-            this.PB_Opis13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis13.Location = new System.Drawing.Point(107, 377);
-            this.PB_Opis13.Name = "PB_Opis13";
-            this.PB_Opis13.Size = new System.Drawing.Size(245, 13);
-            this.PB_Opis13.TabIndex = 8;
-            this.PB_Opis13.Text = "b) koniec pracy bankomatu kliknij: KONIEC";
+            this.lb_opis13.AutoSize = true;
+            this.lb_opis13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis13.Location = new System.Drawing.Point(107, 377);
+            this.lb_opis13.Name = "lb_opis13";
+            this.lb_opis13.Size = new System.Drawing.Size(245, 13);
+            this.lb_opis13.TabIndex = 8;
+            this.lb_opis13.Text = "b) koniec pracy bankomatu kliknij: KONIEC";
             // 
-            // PB_Opis12
+            // lb_opis12
             // 
-            this.PB_Opis12.AutoSize = true;
-            this.PB_Opis12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis12.Location = new System.Drawing.Point(107, 360);
-            this.PB_Opis12.Name = "PB_Opis12";
-            this.PB_Opis12.Size = new System.Drawing.Size(251, 13);
-            this.PB_Opis12.TabIndex = 7;
-            this.PB_Opis12.Text = "a) nowe polecenie wypłaty kliknij: RESETUJ";
+            this.lb_opis12.AutoSize = true;
+            this.lb_opis12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis12.Location = new System.Drawing.Point(107, 360);
+            this.lb_opis12.Name = "lb_opis12";
+            this.lb_opis12.Size = new System.Drawing.Size(251, 13);
+            this.lb_opis12.TabIndex = 7;
+            this.lb_opis12.Text = "a) nowe polecenie wypłaty kliknij: RESETUJ";
             // 
-            // PB_ZestawienieWypłaty
+            // dgw_zestawienieWypłaty
             // 
-            this.PB_ZestawienieWypłaty.AllowUserToAddRows = false;
-            this.PB_ZestawienieWypłaty.AllowUserToDeleteRows = false;
-            this.PB_ZestawienieWypłaty.AllowUserToResizeColumns = false;
-            this.PB_ZestawienieWypłaty.AllowUserToResizeRows = false;
-            this.PB_ZestawienieWypłaty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.PB_ZestawienieWypłaty.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.PB_ZestawienieWypłaty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PB_ZestawienieWypłaty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgw_zestawienieWypłaty.AllowUserToAddRows = false;
+            this.dgw_zestawienieWypłaty.AllowUserToDeleteRows = false;
+            this.dgw_zestawienieWypłaty.AllowUserToResizeColumns = false;
+            this.dgw_zestawienieWypłaty.AllowUserToResizeRows = false;
+            this.dgw_zestawienieWypłaty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgw_zestawienieWypłaty.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgw_zestawienieWypłaty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_zestawienieWypłaty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nominał,
             this.Ilość,
             this.Waluta});
-            this.PB_ZestawienieWypłaty.Location = new System.Drawing.Point(20, 143);
-            this.PB_ZestawienieWypłaty.Name = "PB_ZestawienieWypłaty";
-            this.PB_ZestawienieWypłaty.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PB_ZestawienieWypłaty.Size = new System.Drawing.Size(413, 189);
-            this.PB_ZestawienieWypłaty.TabIndex = 6;
-            this.PB_ZestawienieWypłaty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgw_zestawienieWypłaty.Location = new System.Drawing.Point(20, 143);
+            this.dgw_zestawienieWypłaty.Name = "dgw_zestawienieWypłaty";
+            this.dgw_zestawienieWypłaty.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgw_zestawienieWypłaty.Size = new System.Drawing.Size(413, 189);
+            this.dgw_zestawienieWypłaty.TabIndex = 6;
+            this.dgw_zestawienieWypłaty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // Nominał
             // 
@@ -438,57 +438,57 @@
             this.Waluta.HeaderText = "Waluta";
             this.Waluta.Name = "Waluta";
             // 
-            // PB_Opis11
+            // lb_opis11
             // 
-            this.PB_Opis11.AutoSize = true;
-            this.PB_Opis11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis11.Location = new System.Drawing.Point(128, 123);
-            this.PB_Opis11.Name = "PB_Opis11";
-            this.PB_Opis11.Size = new System.Drawing.Size(206, 17);
-            this.PB_Opis11.TabIndex = 5;
-            this.PB_Opis11.Text = "Tabela wypłaconych nominałów";
+            this.lb_opis11.AutoSize = true;
+            this.lb_opis11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis11.Location = new System.Drawing.Point(128, 123);
+            this.lb_opis11.Name = "lb_opis11";
+            this.lb_opis11.Size = new System.Drawing.Size(206, 17);
+            this.lb_opis11.TabIndex = 5;
+            this.lb_opis11.Text = "Tabela wypłaconych nominałów";
             // 
-            // PB_Opis9
+            // lb_opis9
             // 
-            this.PB_Opis9.AutoSize = true;
-            this.PB_Opis9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.PB_Opis9.Location = new System.Drawing.Point(373, 42);
-            this.PB_Opis9.Name = "PB_Opis9";
-            this.PB_Opis9.Size = new System.Drawing.Size(125, 24);
-            this.PB_Opis9.TabIndex = 4;
-            this.PB_Opis9.Text = "BANKOMAT";
+            this.lb_opis9.AutoSize = true;
+            this.lb_opis9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_opis9.Location = new System.Drawing.Point(373, 42);
+            this.lb_opis9.Name = "lb_opis9";
+            this.lb_opis9.Size = new System.Drawing.Size(125, 24);
+            this.lb_opis9.TabIndex = 4;
+            this.lb_opis9.Text = "BANKOMAT";
             // 
-            // PB_Opis10
+            // lb_opis10
             // 
-            this.PB_Opis10.AutoSize = true;
-            this.PB_Opis10.Location = new System.Drawing.Point(319, 66);
-            this.PB_Opis10.Name = "PB_Opis10";
-            this.PB_Opis10.Size = new System.Drawing.Size(238, 13);
-            this.PB_Opis10.TabIndex = 3;
-            this.PB_Opis10.Text = "Podsumowanie transakcji wypłaty zadanej kwoty";
+            this.lb_opis10.AutoSize = true;
+            this.lb_opis10.Location = new System.Drawing.Point(319, 66);
+            this.lb_opis10.Name = "lb_opis10";
+            this.lb_opis10.Size = new System.Drawing.Size(238, 13);
+            this.lb_opis10.TabIndex = 3;
+            this.lb_opis10.Text = "Podsumowanie transakcji wypłaty zadanej kwoty";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // PB_Bankomat
+            // Bankomat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 434);
-            this.Controls.Add(this.PB_GrZakladek);
-            this.Name = "PB_Bankomat";
+            this.Controls.Add(this.grZakladek);
+            this.Name = "Bankomat";
             this.Text = "Projekt BANKOMAT";
-            this.PB_ZakladkaK.ResumeLayout(false);
-            this.PB_ZakladkaK.PerformLayout();
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.ResumeLayout(false);
-            this.PB_UstalenieSposobuNapelnianiaBankomatu.PerformLayout();
-            this.PB_GrZakladek.ResumeLayout(false);
-            this.PB_ZakladkaZW.ResumeLayout(false);
-            this.PB_ZakladkaZW.PerformLayout();
-            this.PB_ZakladkaWN.ResumeLayout(false);
-            this.PB_ZakladkaWN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_ZestawienieWypłaty)).EndInit();
+            this.zakladkaK.ResumeLayout(false);
+            this.zakladkaK.PerformLayout();
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.ResumeLayout(false);
+            this.gb_ustalenieSposobuNapelnianiaBankomatu.PerformLayout();
+            this.grZakladek.ResumeLayout(false);
+            this.zakladkaZW.ResumeLayout(false);
+            this.zakladkaZW.PerformLayout();
+            this.zakladkaWN.ResumeLayout(false);
+            this.zakladkaWN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_zestawienieWypłaty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -496,43 +496,43 @@
 
         #endregion
 
-        private System.Windows.Forms.TabPage PB_ZakladkaK;
-        private System.Windows.Forms.Button PB_NapelnienieBankomatu;
-        private System.Windows.Forms.TextBox PB_GornaIloscNominalow;
-        private System.Windows.Forms.TextBox PB_DolnaIloscNominalow;
-        private System.Windows.Forms.Label PB_Opis5;
-        private System.Windows.Forms.Label PB_Opis4;
-        private System.Windows.Forms.GroupBox PB_UstalenieSposobuNapelnianiaBankomatu;
-        private System.Windows.Forms.RadioButton PB_LiczbaNominalowRandom;
-        private System.Windows.Forms.RadioButton PB_IloscNominalowDefault;
-        private System.Windows.Forms.Label PB_Opis3;
-        private System.Windows.Forms.Label PB_Opis1;
-        private System.Windows.Forms.ComboBox PB_WybranaWalutaWyplaty;
-        private System.Windows.Forms.TabControl PB_GrZakladek;
-        private System.Windows.Forms.TabPage PB_ZakladkaZW;
-        private System.Windows.Forms.TabPage PB_ZakladkaWN;
-        private System.Windows.Forms.Label PB_Opis2;
-        private System.Windows.Forms.Label PB_Opis7;
-        private System.Windows.Forms.Label PB_Opis6;
-        private System.Windows.Forms.Label PB_Opis9;
-        private System.Windows.Forms.Label PB_Opis10;
-        private System.Windows.Forms.Button PB_AkceptacjaKwoty;
-        private System.Windows.Forms.TextBox PB_KwotaDoWyplaty;
-        private System.Windows.Forms.Label PB_Opis8;
-        private System.Windows.Forms.Label PB_Opis11;
-        private System.Windows.Forms.Button PB_Koniec;
-        private System.Windows.Forms.Button PB_Resetuj;
-        private System.Windows.Forms.Label PB_Opis13;
-        private System.Windows.Forms.Label PB_Opis12;
-        private System.Windows.Forms.DataGridView PB_ZestawienieWypłaty;
+        private System.Windows.Forms.TabPage zakladkaK;
+        private System.Windows.Forms.Button bt_napelnienieBankomatu;
+        private System.Windows.Forms.TextBox tb_gornaIloscNominalow;
+        private System.Windows.Forms.TextBox tb_dolnaIloscNominalow;
+        private System.Windows.Forms.Label lb_opis5;
+        private System.Windows.Forms.Label lb_opis4;
+        private System.Windows.Forms.GroupBox gb_ustalenieSposobuNapelnianiaBankomatu;
+        private System.Windows.Forms.RadioButton rb_liczbaNominalowRandom;
+        private System.Windows.Forms.RadioButton rb_iloscNominalowDefault;
+        private System.Windows.Forms.Label lb_opis3;
+        private System.Windows.Forms.Label lb_opis1;
+        private System.Windows.Forms.ComboBox cb_wybranaWalutaWyplaty;
+        private System.Windows.Forms.TabControl grZakladek;
+        private System.Windows.Forms.TabPage zakladkaZW;
+        private System.Windows.Forms.TabPage zakladkaWN;
+        private System.Windows.Forms.Label lb_opis2;
+        private System.Windows.Forms.Label lb_opis7;
+        private System.Windows.Forms.Label lb_opis6;
+        private System.Windows.Forms.Label lb_opis9;
+        private System.Windows.Forms.Label lb_opis10;
+        private System.Windows.Forms.Button bt_akceptacjaKwoty;
+        private System.Windows.Forms.TextBox tb_kwotaDoWyplaty;
+        private System.Windows.Forms.Label lb_opis8;
+        private System.Windows.Forms.Label lb_opis11;
+        private System.Windows.Forms.Button bt_koniec;
+        private System.Windows.Forms.Button bt_resetuj;
+        private System.Windows.Forms.Label lb_opis13;
+        private System.Windows.Forms.Label lb_opis12;
+        private System.Windows.Forms.DataGridView dgw_zestawienieWypłaty;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nominał;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ilość;
         private System.Windows.Forms.DataGridViewTextBoxColumn Waluta;
-        private System.Windows.Forms.Label PB_CopyrightZ1;
-        private System.Windows.Forms.Label PB_CopyrightZ2;
-        private System.Windows.Forms.Label PB_CopyrightZ3;
-        private System.Windows.Forms.Label PB_WalutaInfo;
+        private System.Windows.Forms.Label lb_copyrightZ1;
+        private System.Windows.Forms.Label lb_copyrightZ2;
+        private System.Windows.Forms.Label lb_copyrightZ3;
+        private System.Windows.Forms.Label walutaInfo;
 
     }
 }
